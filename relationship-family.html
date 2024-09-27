@@ -51,20 +51,20 @@
             color: white;
             border: none;
             cursor: pointer;
+            margin-top: 10px;
         }
         .button:hover {
             background-color: #007acc;
         }
+        .video {
+            max-width: 100%;
+            height: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
-    <script>
-        function redirectToAd() {
-            window.location.href = "https://noohapou.com/4/8158230"; // Your actual ad link
-        }
-
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 </head>
 <body>
 
@@ -74,21 +74,23 @@
 </header>
 
 <nav>
-    <a href="#" onclick="scrollToSection('about')">About</a>
-    <a href="#" onclick="scrollToSection('categories')">Key Categories</a>
-    <a href="#" onclick="scrollToSection('sponsors')">Our Sponsors</a>
+    <a href="#about">About</a>
+    <a href="#categories">Key Categories</a>
+    <a href="#sponsors">Our Sponsors</a>
 </nav>
 
 <section id="home">
     <h2>Welcome to Raising Love</h2>
     <p>Discover tips, advice, and inspiration for nurturing your family relationships.</p>
-    <button class="button" onclick="redirectToAd()">Check Our Sponsors</button>
+    <img src="https://via.placeholder.com/800x400" alt="Family Together" />
+    <button class="button" onclick="window.location.href='https://noohapou.com/4/8158230'">Check Our Sponsors</button>
 </section>
 
 <section id="about">
     <h2>About Us</h2>
     <p>Welcome to Raising Love: Parenting & Relationships, a blog dedicated to helping families thrive...</p>
-    <button class="button" onclick="redirectToAd()">Check Our Sponsors</button>
+    <img src="https://via.placeholder.com/800x400" alt="Parenting Advice" />
+    <button class="button" onclick="window.location.href='https://noohapou.com/4/8158230'">Check Our Sponsors</button>
 </section>
 
 <section id="categories">
@@ -99,18 +101,22 @@
         <li>Positive Discipline Techniques: Setting boundaries without punishment</li>
         <li>Empathy in Parenting: Raising emotionally intelligent kids</li>
     </ul>
-    <button class="button" onclick="redirectToAd()">Check Our Sponsors</button>
+    <video class="video" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button class="button" onclick="window.location.href='https://noohapou.com/4/8158230'">Check Our Sponsors</button>
 </section>
 
 <section id="sponsors">
     <h2>Our Sponsors</h2>
     <p>Support from our sponsors helps us provide valuable content. Thank you for visiting!</p>
-    <button class="button" onclick="redirectToAd()">Visit Our Ad</button>
+    <button class="button" onclick="window.location.href='https://noohapou.com/4/8158230'">Visit Our Ad</button>
 </section>
 
 <footer class="footer">
     <p>&copy; 2024 Raising Love: Parenting & Relationships. All rights reserved.</p>
-    <a href="#" onclick="scrollToSection('about')">About Us</a> | <a href="#" onclick="scrollToSection('categories')">Key Categories</a>
+    <a href="#about">About Us</a> | <a href="#categories">Key Categories</a>
 </footer>
 
 </body>
