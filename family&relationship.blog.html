@@ -53,7 +53,7 @@
             padding: 2rem;
         }
 
-        .blog-posts, .videos, .article-section, .ads {
+        .blog-posts, .videos, .article-section {
             width: 100%;
             max-width: 1200px;
             background-color: #fff;
@@ -69,11 +69,11 @@
             color: #005f99;
         }
 
-        .post, .video, .ad-item {
+        .post, .video {
             margin-bottom: 1.5rem;
         }
 
-        .post img, .ad-item img {
+        .post img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
@@ -131,6 +131,13 @@
             text-align: justify;
         }
 
+        /* Resize the first image */
+        .article-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Adjust the ad-overlay for mobile */
         .ad-overlay {
             display: none;
             position: fixed;
@@ -155,7 +162,7 @@
         }
 
         @media only screen and (max-width: 768px) {
-            .blog-posts, .videos, .article-section, .ads {
+            .blog-posts, .videos, .article-section {
                 width: 100%;
             }
 
@@ -230,55 +237,34 @@
                 <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
             </article>
         </section>
-
-        <section class="ads">
-            <h2>Our Featured Products</h2>
-            <div class="ad-item">
-                <img src="https://example.com/ad1.jpg" alt="Ad 1">
-                <a class="cta-button" href="https://example.com/ad1" target="_blank">Shop Now</a>
-            </div>
-            <div class="ad-item">
-                <img src="https://example.com/ad2.jpg" alt="Ad 2">
-                <a class="cta-button" href="https://example.com/ad2" target="_blank">Shop Now</a>
-            </div>
-            <div class="ad-item">
-                <img src="https://example.com/ad3.jpg" alt="Ad 3">
-                <a class="cta-button" href="https://example.com/ad3" target="_blank">Shop Now</a>
-            </div>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Raising Love: Parenting & Relationships. All Rights Reserved.</p>
+        <p>&copy; 2024 Raising Love. All rights reserved.</p>
     </footer>
 
-    <div class="ad-overlay" id="adOverlay">
-        <h2>Thank You for Supporting Us!</h2>
-        <p>Your click helps us create more great content. Enjoy your visit!</p>
-        <button onclick="closeOverlay()">Close</button>
+    <div class="ad-overlay" id="ad-overlay">
+        <h2>Congratulations!</h2>
+        <p>You have successfully accessed our sponsored content. Thank you for your support!</p>
     </div>
 
     <script>
         function toggleText() {
             var shortContent = document.getElementById("short-content");
             var longContent = document.getElementById("long-content");
-            if (shortContent.style.display === "none") {
-                shortContent.style.display = "block";
-                longContent.style.display = "none";
-            } else {
-                shortContent.style.display = "none";
+            var readMoreButton = document.querySelector(".read-more");
+
+            if (longContent.style.display === "none") {
                 longContent.style.display = "block";
-            }
-        }
+                readMoreButton.textContent = "Read Less";
+            } else {
+                longContent.style.display =    function showAd(adLink) {
+        document.getElementById('ad-overlay').style.display = 'flex';
+        window.open(adLink, '_blank');
+    }
 
-        function showAd(adLink) {
-            document.getElementById('adOverlay').style.display = 'flex';
-            window.open(adLink, '_blank');
-        }
+    function closeOverlay() {
+        document.getElementById('ad-overlay').style.display = 'none';
+    }
+</script>
 
-        function closeOverlay() {
-            document.getElementById('adOverlay').style.display = 'none';
-        }
-    </script>
-</body>
-</html>
