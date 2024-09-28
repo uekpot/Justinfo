@@ -19,7 +19,7 @@
 
         header {
             background-color: #005f99;
-            color: #fff;
+            color: #fff; /* Change text color to white */
             padding: 1rem 0;
             text-align: center;
         }
@@ -33,7 +33,6 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
 
         nav ul li {
@@ -48,19 +47,19 @@
 
         main {
             display: flex;
-            flex-direction: column; /* Change to single-column layout */
+            flex-direction: column;
             align-items: center;
             padding: 2rem;
         }
 
         .blog-posts, .videos {
-            width: 100%; /* Full width for mobile */
-            max-width: 600px; /* Limit max width */
+            width: 90%;
+            max-width: 600px;
             background-color: #fff;
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 1rem; /* Spacing between sections */
+            margin-bottom: 2rem;
         }
 
         h2 {
@@ -99,15 +98,13 @@
         .read-more, .cta-button {
             display: inline-block;
             margin: 10px 5px 0 0;
-            padding: 12px 20px; /* Increased padding for easier tapping */
+            padding: 10px 20px;
             background-color: #005f99;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
-            width: 100%; /* Full-width buttons on mobile */
-            text-align: center; /* Center text in buttons */
         }
 
         .read-more:hover, .cta-button:hover {
@@ -225,11 +222,9 @@
         }
 
         function showAd(url) {
-            // Show the ad overlay
             const overlay = document.getElementById('adOverlay');
             overlay.style.display = 'flex';
 
-            // Countdown timer
             let countdown = 5;
             const countdownElement = document.getElementById('countdown');
             countdownElement.textContent = countdown;
@@ -240,7 +235,7 @@
 
                 if (countdown <= 0) {
                     clearInterval(interval);
-                    window.location.href = url; // Redirect after countdown
+                    window.location.href = "https://www.justinfo.store/family&relationship.blog"; // Redirect after countdown
                 }
             }, 1000);
         }
