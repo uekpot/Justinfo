@@ -23,6 +23,9 @@
             color: #fff;
             padding: 1rem 0;
             text-align: center;
+            position: sticky; /* Keeps header visible */
+            top: 0;
+            z-index: 1000;
         }
 
         header h1 {
@@ -131,13 +134,6 @@
             text-align: justify;
         }
 
-        /* Resize the first image */
-        .article-section img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Adjust the ad-overlay for mobile */
         .ad-overlay {
             display: none;
             position: fixed;
@@ -161,6 +157,15 @@
             font-size: 1.2rem;
         }
 
+        .archive {
+            margin-top: 20px;
+        }
+
+        .archive h2 {
+            margin-bottom: 10px;
+            color: #005f99;
+        }
+
         @media only screen and (max-width: 768px) {
             .blog-posts, .videos, .article-section {
                 width: 100%;
@@ -168,6 +173,10 @@
 
             nav ul {
                 flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 1.8rem; /* Smaller header on mobile */
             }
         }
     </style>
@@ -181,6 +190,7 @@
                 <li><a href="#">Parenting Tips</a></li>
                 <li><a href="#">Videos</a></li>
                 <li><a href="#">Self-Care</a></li>
+                <li><a href="#">Archive</a></li> <!-- Link to archive -->
             </ul>
         </nav>
     </header>
@@ -237,34 +247,50 @@
                 <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
             </article>
         </section>
+
+        <section class="archive">
+            <h2>Archive</h2>
+            <ul>
+                <li><a href="#">Understanding Relationship Boundaries</a></li>
+                <li><a href="#">Parenting Resolutions for a Stress-Free Year</a></li>
+                <!-- Add more archived posts here -->
+            </ul>
+        </section>
+
+        <div class="ad-overlay" id="ad-overlay">
+            <h2>Congratulations!</h2>
+            <p>Your click has been noted. Thank you for your interest!</p>
+            <button onclick="closeAd()">Close</button>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Raising Love. All rights reserved.</p>
+        <p>&copy; 2024 Raising Love: Parenting & Relationships. All Rights Reserved.</p>
     </footer>
-
-    <div class="ad-overlay" id="ad-overlay">
-        <h2>Congratulations!</h2>
-        <p>You have successfully accessed our sponsored content. Thank you for your support!</p>
-    </div>
 
     <script>
         function toggleText() {
-            var shortContent = document.getElementById("short-content");
-            var longContent = document.getElementById("long-content");
-            var readMoreButton = document.querySelector(".read-more");
-
-            if (longContent.style.display === "none") {
-                longContent.style.display = "block";
-                readMoreButton.textContent = "Read Less";
+            const shortContent = document.getElementById('short-content');
+            const longContent = document.getElementById('long-content');
+            if (longContent.style.display === 'none') {
+                longContent.style.display = 'block';
+                shortContent.style.display = 'none';
             } else {
-                longContent.style.display =    function showAd(adLink) {
-        document.getElementById('ad-overlay').style.display = 'flex';
-        window.open(adLink, '_blank');
-    }
+                longContent.style.display = 'none';
+                shortContent.style.display = 'block';
+            }
+        }
 
-    function closeOverlay() {
-        document.getElementById('ad-overlay').style.display = 'none';
-    }
-</script>
+        function showAd(link) {
+            const adOverlay = document.getElementById('ad-overlay');
+            adOverlay.style.display = 'flex';
+            window.open(link, '_blank');
+        }
 
+        function closeAd() {
+            const adOverlay = document.getElementById('ad-overlay');
+            adOverlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
