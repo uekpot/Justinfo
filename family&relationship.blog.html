@@ -33,10 +33,11 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            flex-wrap: wrap; /* Allow wrap on smaller screens */
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 10px;
         }
 
         nav ul li a {
@@ -47,13 +48,14 @@
 
         main {
             display: flex;
-            justify-content: space-around;
-            padding: 2rem;
-            flex-wrap: wrap; /* Ensure responsive layout */
+            flex-direction: column; /* Stack columns vertically on mobile */
+            padding: 1rem;
+            align-items: center; /* Center align on mobile */
         }
 
         .blog-posts, .videos {
-            width: 45%;
+            width: 100%; /* Full width on mobile */
+            max-width: 600px; /* Limit max width */
             background-color: #fff;
             padding: 1rem;
             border-radius: 10px;
@@ -65,6 +67,7 @@
             font-size: 2rem;
             margin-bottom: 1rem;
             color: #005f99;
+            text-align: center; /* Center align titles */
         }
 
         .post, .video {
@@ -104,6 +107,7 @@
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
+            text-align: center; /* Center text in buttons */
         }
 
         .read-more:hover, .cta-button:hover {
@@ -139,6 +143,36 @@
 
         .ad-overlay p {
             font-size: 1.2rem;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem; /* Adjust header size on mobile */
+            }
+
+            nav ul li {
+                margin: 0 5px;
+                font-size: 0.9rem; /* Smaller font for navigation */
+            }
+
+            .read-more, .cta-button {
+                width: 100%; /* Full width buttons on mobile */
+                padding: 15px; /* Larger padding */
+                font-size: 1.1rem; /* Slightly larger text */
+            }
+
+            h2 {
+                font-size: 1.8rem; /* Smaller h2 for mobile */
+            }
+
+            .post h3 {
+                font-size: 1.4rem; /* Smaller post titles */
+            }
+
+            footer {
+                padding: 0.5rem; /* Smaller footer padding */
+            }
         }
     </style>
 </head>
@@ -185,13 +219,13 @@
         <section class="videos">
             <h2>Featured Videos</h2>
             <article class="video">
-                <iframe src="https://www.youtube.com/watch?v=QypaEm0hBS4" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/v=QypaEm0hBS4" frameborder="0" allowfullscreen></iframe>
                 <h3>Why Parents should take care of their children alone</h3>
                 <a href="https://www.youtube.com/watch?v=QypaEm0hBS4" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">More Videos</a>
             </article>
 
             <article class="video">
-                <iframe src="https://www.youtube.com/watch?v=Ep-Yh1IZ6Ds" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/Ep-Yh1IZ6Ds" frameborder="0" allowfullscreen></iframe>
                 <h3>Why you should be very careful with your best friends</h3>
                 <a href="https://www.youtube.com/watch?v=Ep-Yh1IZ6Ds" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">More Videos</a>
             </article>
@@ -205,7 +239,7 @@
     <!-- Ad overlay -->
     <div class="ad-overlay" id="adOverlay">
         <h2>Redirecting!</h2>
-        <p>Redirecting to your offer in <span id="countdown">5</span> seconds...</p>
+        <p>Redirecting to your page in <span id="countdown">5</span> seconds...</p>
     </div>
 
     <script>
@@ -222,34 +256,22 @@
 
         function showAd(url) {
             // Show the ad overlay
-            const overlay = document.getElementById('adOverlay');
-            overlay.style.display = 'flex';
+            document.getElementById('adOverlay').style.display = 'flex';
+            startCountdown(url);
+        }
 
-            // Countdown timer
+        function startCountdown(url) {
             let countdown = 5;
-            const countdownElement = document.getElementById('countdown');
-            countdownElement.textContent = countdown;
-
+            document.getElementById('countdown').textContent = countdown;
             const interval = setInterval(() => {
                 countdown--;
-                countdownElement.textContent = countdown;
-
-                if (countdown === 0) {
+                document.getElementById('countdown').textContent = countdown;
+                if (countdown <= 0) {
                     clearInterval(interval);
-                    // Show confirmation message
-                    overlay.innerHTML = `<h2>Congratulations!</h2><p>You are being redirected to our special offer...</p>`;
-                    // Redirect to the intended link after a short delay
-                    setTimeout(() => {
-                        window.location.href = url;
-                    }, 2000); // Adjust the delay as needed (2 seconds here)
+                    window.location.href = "https://www.justinfo.store/family&relationship.blog"; // Redirect to the ad URL
                 }
             }, 1000);
         }
     </script>
-
-    <!-- BEGIN: Powered by Supercounters.com -->
-<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1699971,"","");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
-</center>
-<!-- END: Powered by Supercounters.com -->
 </body>
 </html>
