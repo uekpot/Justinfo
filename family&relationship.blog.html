@@ -19,7 +19,7 @@
 
         header {
             background-color: #005f99;
-            color: #fff; /* Change text color to white */
+            color: #fff;
             padding: 1rem 0;
             text-align: center;
         }
@@ -47,19 +47,18 @@
 
         main {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-around;
             padding: 2rem;
+            flex-wrap: wrap; /* Ensure responsive layout */
         }
 
         .blog-posts, .videos {
-            width: 90%;
-            max-width: 600px;
+            width: 45%;
             background-color: #fff;
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 2rem; /* Add spacing for mobile */
         }
 
         h2 {
@@ -148,7 +147,7 @@
         <h1>Raising Love: Parenting & Relationships</h1>
         <nav>
             <ul>
-                <li><a href onclick ="showAd('https://noohapou.com/4/8115973')"">Home</a> </li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Parenting Tips</a></li>
                 <li><a href="#">Videos</a></li>
                 <li><a href="#">Self-Care</a></li>
@@ -168,7 +167,7 @@
                     <p>These strategies will help you stay focused and stress-free all year round!</p>
                 </div>
                 <a class="read-more" onclick="toggleText(this)">Read More</a>
-                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
+                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Unlock Exclusive Tips!</a>
             </article>
 
             <article class="post">
@@ -179,7 +178,7 @@
                     <p>Setting family goals can help bring everyone together. We'll show you how to set short-term and long-term goals, with examples and templates for easy tracking!</p>
                 </div>
                 <a class="read-more" onclick="toggleText(this)">Read More</a>
-                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
+                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Unlock Exclusive Tips!</a>
             </article>
         </section>
 
@@ -222,9 +221,11 @@
         }
 
         function showAd(url) {
+            // Show the ad overlay
             const overlay = document.getElementById('adOverlay');
             overlay.style.display = 'flex';
 
+            // Countdown timer
             let countdown = 5;
             const countdownElement = document.getElementById('countdown');
             countdownElement.textContent = countdown;
@@ -233,12 +234,22 @@
                 countdown--;
                 countdownElement.textContent = countdown;
 
-                if (countdown <= 0) {
+                if (countdown === 0) {
                     clearInterval(interval);
-                    window.location.href = "https://www.justinfo.store/family&relationship.blog"; // Redirect after countdown
+                    // Show confirmation message
+                    overlay.innerHTML = `<h2>Congratulations!</h2><p>You are being redirected to our special offer...</p>`;
+                    // Redirect to the intended link after a short delay
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 2000); // Adjust the delay as needed (2 seconds here)
                 }
             }, 1000);
         }
     </script>
+
+    <!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1699971,"","");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
 </body>
 </html>
