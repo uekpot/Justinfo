@@ -88,6 +88,7 @@
         .post p {
             margin: 10px 0;
             color: #555;
+            text-align: justify;
         }
 
         .read-more, .cta-button {
@@ -124,6 +125,10 @@
 
         .article-section h1, .article-section h2 {
             color: #005f99;
+        }
+
+        .article-section p {
+            text-align: justify;
         }
 
         .ad-overlay {
@@ -177,45 +182,41 @@
         <section class="article-section">
             <h1>Understanding Relationship Boundaries</h1>
 
-            <p>In any relationship, whether romantic, familial, or platonic, boundaries are essential for maintaining a healthy dynamic. But what exactly are relationship boundaries, and why are they so important? In this post, we'll explore the definition of boundaries, the different types that exist, and how they contribute to fulfilling and respectful relationships.</p>
+            <div id="short-content">
+                <p>In any relationship, boundaries are essential for maintaining a healthy dynamic. But what exactly are relationship boundaries, and why are they so important? In this post, we'll explore the definition of boundaries, the different types that exist, and how they contribute to respectful relationships.</p>
+            </div>
+            <div id="long-content" style="display: none;">
+                <p>Relationship boundaries are the limits we set to protect our emotional and physical well-being. They define what we are comfortable with, fostering mutual respect. By establishing clear boundaries, we express our needs and expectations, while allowing others to do the same.</p>
 
-            <h2>What Are Relationship Boundaries?</h2>
-            <p>Relationship boundaries are the limits we set in our relationships to protect our emotional and physical well-being. They define what we are comfortable with and what we are not, helping to foster mutual respect and understanding. By establishing clear boundaries, we can express our needs and expectations while allowing others to do the same.</p>
+                <h2>What Are Relationship Boundaries?</h2>
+                <p>Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships. They promote self-respect, mutual respect, and independence, helping individuals maintain their identity within the relationship.</p>
 
-            <h2>The Importance of Boundaries</h2>
-            <ol>
-                <li><strong>Promote Healthy Communication:</strong> Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships.</li>
-                <li><strong>Enhance Self-Respect:</strong> Knowing your limits reinforces self-esteem and self-worth, making you less likely to tolerate disrespect or mistreatment.</li>
-                <li><strong>Encourage Mutual Respect:</strong> Clear boundaries help both parties understand and respect each other's needs, which can reduce conflicts and misunderstandings.</li>
-                <li><strong>Foster Independence:</strong> Boundaries allow individuals to maintain their identity and independence within a relationship, promoting personal growth.</li>
-            </ol>
+                <h2>The Importance of Boundaries</h2>
+                <ol>
+                    <li><strong>Promote Healthy Communication:</strong> Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships.</li>
+                    <li><strong>Enhance Self-Respect:</strong> Knowing your limits reinforces self-esteem and self-worth.</li>
+                    <li><strong>Encourage Mutual Respect:</strong> Clear boundaries help both parties understand and respect each other's needs.</li>
+                    <li><strong>Foster Independence:</strong> Boundaries allow individuals to maintain their identity and independence within a relationship.</li>
+                </ol>
 
-            <h2>Types of Relationship Boundaries</h2>
-            <h3>1. Emotional Boundaries</h3>
-            <p>These involve how much you are willing to share about your feelings and experiences. Emotional boundaries help prevent emotional manipulation and promote healthy expressions of vulnerability.</p>
+                <h2>Types of Relationship Boundaries</h2>
+                <h3>1. Emotional Boundaries</h3>
+                <p>These involve how much you are willing to share about your feelings and experiences.</p>
 
-            <h3>2. Physical Boundaries</h3>
-            <p>These refer to personal space and physical touch. It’s essential to communicate your comfort level with physical affection and proximity.</p>
+                <h3>2. Physical Boundaries</h3>
+                <p>These refer to personal space and physical touch.</p>
 
-            <h3>3. Time Boundaries</h3>
-            <p>These boundaries help manage how much time you spend with others and prioritize your personal time and commitments.</p>
+                <h3>3. Time Boundaries</h3>
+                <p>Time boundaries help manage how much time you spend with others and prioritize personal time and commitments.</p>
 
-            <h3>4. Digital Boundaries</h3>
-            <p>In today's tech-savvy world, digital boundaries relate to how much personal information you share online and the time you spend on devices, including social media interactions.</p>
+                <h3>4. Digital Boundaries</h3>
+                <p>In today's tech world, digital boundaries relate to sharing personal information online and managing screen time.</p>
 
-            <h2>Real-Life Examples</h2>
-            <ul>
-                <li><strong>Emotional Boundary:</strong> If a partner repeatedly brings up a painful subject that you’re uncomfortable discussing, expressing your need for them to stop is essential for emotional health.</li>
-                <li><strong>Physical Boundary:</strong> If you’re not comfortable with public displays of affection, communicating this to your partner helps establish a mutual understanding.</li>
-                <li><strong>Time Boundary:</strong> If work or personal commitments require your attention, letting your friends know when you are unavailable prevents over-commitment.</li>
-                <li><strong>Digital Boundary:</strong> If you prefer not to share your location on social media, it’s essential to communicate this to ensure your privacy is respected.</li>
-            </ul>
+                <h2>Conclusion</h2>
+                <p>Understanding and establishing boundaries nurtures healthy connections, promoting communication, respect, and individuality while protecting emotional well-being.</p>
+            </div>
 
-            <h2>Conclusion</h2>
-            <p>Understanding and establishing relationship boundaries is crucial for nurturing healthy connections. They foster communication, respect, and individuality while protecting your emotional and physical well-being. Remember, it’s perfectly okay to set limits that ensure you feel safe and valued in your relationships.</p>
-
-            <h3>Your Thoughts</h3>
-            <p>What boundaries have you found essential in your relationships? How do you communicate them? Share your experiences in the comments below!</p>
+            <a class="read-more" onclick="toggleText()">Read More</a>
         </section>
 
         <section class="blog-posts">
@@ -240,8 +241,18 @@
     </div>
 
     <script>
-        function toggleText(element) {
-            // Add functionality to expand or collapse text content here
+        function toggleText() {
+            var shortContent = document.getElementById("short-content");
+            var longContent = document.getElementById("long-content");
+            var readMoreButton = document.querySelector(".read-more");
+
+            if (longContent.style.display === "none") {
+                longContent.style.display = "block";
+                readMoreButton.textContent = "Read Less";
+            } else {
+                longContent.style.display = "none";
+                readMoreButton.textContent = "Read More";
+            }
         }
 
         function showAd(adLink) {
