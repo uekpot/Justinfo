@@ -3,106 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Understanding Relationship Boundaries</title>
+    <title>Raising Love: Parenting & Relationships</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
         }
 
-        h1, h2, h3 {
-            color: #005f99;
+        header {
+            background-color: #005f99;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
         }
 
-        p {
-            line-height: 1.6;
-            color: #333;
+        header h1 {
+            font-size: 2.5rem;
         }
 
-        .container {
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .blog-posts, .videos, .article-section {
+            width: 100%;
+            max-width: 1200px;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .container h1 {
+        h2, h1, h3 {
             font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #005f99;
         }
 
-        .container h2 {
-            font-size: 1.8rem;
-            margin-top: 20px;
+        .post, .video {
+            margin-bottom: 1.5rem;
         }
 
-        .container h3 {
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .post h3, .video h3 {
+            margin-top: 10px;
             font-size: 1.5rem;
-            margin-top: 15px;
+            color: #333;
         }
 
-        .container p {
-            margin-bottom: 15px;
+        .post p {
+            margin: 10px 0;
+            color: #555;
         }
 
-        ul, ol {
+        .read-more, .cta-button {
+            display: inline-block;
+            margin: 10px 5px 0 0;
+            padding: 10px 20px;
+            background-color: #005f99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .read-more:hover, .cta-button:hover {
+            background-color: #003f66;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #005f99;
+            color: #fff;
+        }
+
+        .article-section ul, .article-section ol {
             margin-left: 20px;
             margin-bottom: 20px;
         }
 
-        li {
+        .article-section ul li, .article-section ol li {
             margin-bottom: 10px;
         }
 
-        strong {
-            font-weight: bold;
+        .article-section h1, .article-section h2 {
+            color: #005f99;
+        }
+
+        .ad-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ad-overlay h2 {
+            margin-bottom: 20px;
+        }
+
+        .ad-overlay p {
+            font-size: 1.2rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .blog-posts, .videos, .article-section {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Understanding Relationship Boundaries</h1>
-        
-        <p>In any relationship, whether romantic, familial, or platonic, boundaries are essential for maintaining a healthy dynamic. But what exactly are relationship boundaries, and why are they so important? In this post, we'll explore the definition of boundaries, the different types that exist, and how they contribute to fulfilling and respectful relationships.</p>
+    <header>
+        <h1>Raising Love: Parenting & Relationships</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Parenting Tips</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Self-Care</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <h2>What Are Relationship Boundaries?</h2>
-        <p>Relationship boundaries are the limits we set in our relationships to protect our emotional and physical well-being. They define what we are comfortable with and what we are not, helping to foster mutual respect and understanding. By establishing clear boundaries, we can express our needs and expectations while allowing others to do the same.</p>
+    <main>
+        <section class="article-section">
+            <h1>Understanding Relationship Boundaries</h1>
 
-        <h2>The Importance of Boundaries</h2>
-        <ol>
-            <li><strong>Promote Healthy Communication:</strong> Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships.</li>
-            <li><strong>Enhance Self-Respect:</strong> Knowing your limits reinforces self-esteem and self-worth, making you less likely to tolerate disrespect or mistreatment.</li>
-            <li><strong>Encourage Mutual Respect:</strong> Clear boundaries help both parties understand and respect each other's needs, which can reduce conflicts and misunderstandings.</li>
-            <li><strong>Foster Independence:</strong> Boundaries allow individuals to maintain their identity and independence within a relationship, promoting personal growth.</li>
-        </ol>
+            <p>In any relationship, whether romantic, familial, or platonic, boundaries are essential for maintaining a healthy dynamic. But what exactly are relationship boundaries, and why are they so important? In this post, we'll explore the definition of boundaries, the different types that exist, and how they contribute to fulfilling and respectful relationships.</p>
 
-        <h2>Types of Relationship Boundaries</h2>
-        <h3>1. Emotional Boundaries</h3>
-        <p>These involve how much you are willing to share about your feelings and experiences. Emotional boundaries help prevent emotional manipulation and promote healthy expressions of vulnerability.</p>
+            <h2>What Are Relationship Boundaries?</h2>
+            <p>Relationship boundaries are the limits we set in our relationships to protect our emotional and physical well-being. They define what we are comfortable with and what we are not, helping to foster mutual respect and understanding. By establishing clear boundaries, we can express our needs and expectations while allowing others to do the same.</p>
 
-        <h3>2. Physical Boundaries</h3>
-        <p>These refer to personal space and physical touch. It’s essential to communicate your comfort level with physical affection and proximity.</p>
+            <h2>The Importance of Boundaries</h2>
+            <ol>
+                <li><strong>Promote Healthy Communication:</strong> Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships.</li>
+                <li><strong>Enhance Self-Respect:</strong> Knowing your limits reinforces self-esteem and self-worth, making you less likely to tolerate disrespect or mistreatment.</li>
+                <li><strong>Encourage Mutual Respect:</strong> Clear boundaries help both parties understand and respect each other's needs, which can reduce conflicts and misunderstandings.</li>
+                <li><strong>Foster Independence:</strong> Boundaries allow individuals to maintain their identity and independence within a relationship, promoting personal growth.</li>
+            </ol>
 
-        <h3>3. Time Boundaries</h3>
-        <p>These boundaries help manage how much time you spend with others and prioritize your personal time and commitments.</p>
+            <h2>Types of Relationship Boundaries</h2>
+            <h3>1. Emotional Boundaries</h3>
+            <p>These involve how much you are willing to share about your feelings and experiences. Emotional boundaries help prevent emotional manipulation and promote healthy expressions of vulnerability.</p>
 
-        <h3>4. Digital Boundaries</h3>
-        <p>In today's tech-savvy world, digital boundaries relate to how much personal information you share online and the time you spend on devices, including social media interactions.</p>
+            <h3>2. Physical Boundaries</h3>
+            <p>These refer to personal space and physical touch. It’s essential to communicate your comfort level with physical affection and proximity.</p>
 
-        <h2>Real-Life Examples</h2>
-        <ul>
-            <li><strong>Emotional Boundary:</strong> If a partner repeatedly brings up a painful subject that you’re uncomfortable discussing, expressing your need for them to stop is essential for emotional health.</li>
-            <li><strong>Physical Boundary:</strong> If you’re not comfortable with public displays of affection, communicating this to your partner helps establish a mutual understanding.</li>
-            <li><strong>Time Boundary:</strong> If work or personal commitments require your attention, letting your friends know when you are unavailable prevents over-commitment.</li>
-            <li><strong>Digital Boundary:</strong> If you prefer not to share your location on social media, it’s essential to communicate this to ensure your privacy is respected.</li>
-        </ul>
+            <h3>3. Time Boundaries</h3>
+            <p>These boundaries help manage how much time you spend with others and prioritize your personal time and commitments.</p>
 
-        <h2>Conclusion</h2>
-        <p>Understanding and establishing relationship boundaries is crucial for nurturing healthy connections. They foster communication, respect, and individuality while protecting your emotional and physical well-being. Remember, it’s perfectly okay to set limits that ensure you feel safe and valued in your relationships.</p>
+            <h3>4. Digital Boundaries</h3>
+            <p>In today's tech-savvy world, digital boundaries relate to how much personal information you share online and the time you spend on devices, including social media interactions.</p>
 
-        <h3>Your Thoughts</h3>
-        <p>What boundaries have you found essential in your relationships? How do you communicate them? Share your experiences in the comments below!</p>
+            <h2>Real-Life Examples</h2>
+            <ul>
+                <li><strong>Emotional Boundary:</strong> If a partner repeatedly brings up a painful subject that you’re uncomfortable discussing, expressing your need for them to stop is essential for emotional health.</li>
+                <li><strong>Physical Boundary:</strong> If you’re not comfortable with public displays of affection, communicating this to your partner helps establish a mutual understanding.</li>
+                <li><strong>Time Boundary:</strong> If work or personal commitments require your attention, letting your friends know when you are unavailable prevents over-commitment.</li>
+                <li><strong>Digital Boundary:</strong> If you prefer not to share your location on social media, it’s essential to communicate this to ensure your privacy is respected.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>Understanding and establishing relationship boundaries is crucial for nurturing healthy connections. They foster communication, respect, and individuality while protecting your emotional and physical well-being. Remember, it’s perfectly okay to set limits that ensure you feel safe and valued in your relationships.</p>
+
+            <h3>Your Thoughts</h3>
+            <p>What boundaries have you found essential in your relationships? How do you communicate them? Share your experiences in the comments below!</p>
+        </section>
+
+        <section class="blog-posts">
+            <h2>Featured Blog Posts</h2>
+            <article class="post">
+                <img src="https://imagizer.imageshack.com/img923/6397/KgqcPT.png" alt="Parenting Resolutions">
+                <h3>Parenting Resolutions for a Stress-Free Year</h3>
+                <p>5 practical resolutions for stress-free parenting. Action tips and examples...</p>
+                <a class="read-more" onclick="toggleText(this)">Read More</a>
+                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Raising Love. All rights reserved.</p>
+    </footer>
+
+    <div class="ad-overlay" id="ad-overlay">
+        <h2>Congratulations!</h2>
+        <p>You have successfully accessed our sponsored content. Thank you for your support!</p>
     </div>
+
+    <script>
+        function toggleText(element) {
+            // Add functionality to expand or collapse text content here
+        }
+
+        function showAd(adLink) {
+            window.location.href = adLink;
+            document.getElementById('ad-overlay').style.display = 'flex';
+            setTimeout(function() {
+                document.getElementById('ad-overlay').style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
