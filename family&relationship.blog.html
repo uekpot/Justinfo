@@ -180,6 +180,34 @@
                 font-size: 1.8rem; /* Smaller header on mobile */
             }
         }
+        
+        .form-section {
+            margin-top: 2rem;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comments-section {
+            margin-top: 2rem;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comment {
+            margin-bottom: 1rem;
+        }
+
+        .comment h4 {
+            color: #005f99;
+        }
+
+        .comment p {
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -242,57 +270,4 @@
         <section class="blog-posts">
             <h2>Featured Blog Posts</h2>
             <article class="post">
-                <img src="https://imagizer.imageshack.com/img923/6397/KgqcPT.png" alt="Parenting Resolutions">
-                <h3>Parenting Resolutions for a Stress-Free Year</h3>
-                <p>5 practical resolutions for stress-free parenting. Action tips and examples...</p>
-                <a class="read-more" onclick="toggleText(this)">Read More</a>
-                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
-            </article>
-        </section>
-
-        <section class="archive">
-            <h2>Archive</h2>
-            <ul>
-                <li><a href="#">Understanding Relationship Boundaries</a></li>
-                <li><a href="#">Parenting Resolutions for a Stress-Free Year</a></li>
-                <!-- Add more archived posts here -->
-            </ul>
-        </section>
-
-        <div class="ad-overlay" id="ad-overlay">
-            <h2>Congratulations!</h2>
-            <p>Your click has been noted. Thank you for your interest!</p>
-            <button onclick="closeAd()">Close</button>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Raising Love: Parenting & Relationships. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function toggleText() {
-            const shortContent = document.getElementById('short-content');
-            const longContent = document.getElementById('long-content');
-            if (longContent.style.display === 'none') {
-                longContent.style.display = 'block';
-                shortContent.style.display = 'none';
-            } else {
-                longContent.style.display = 'none';
-                shortContent.style.display = 'block';
-            }
-        }
-
-        function showAd(link) {
-            const adOverlay = document.getElementById('ad-overlay');
-            adOverlay.style.display = 'flex';
-            window.open(link, '_blank');
-        }
-
-        function closeAd() {
-            const adOverlay = document.getElementById('ad-overlay');
-            adOverlay.style.display = 'none';
-        }
-    </script>
-</body>
-</html>
+                <img src="https://imagizer
