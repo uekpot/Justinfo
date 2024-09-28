@@ -34,6 +34,7 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
         }
 
         nav ul li {
@@ -48,14 +49,14 @@
 
         main {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 2rem;
+            flex-direction: column; /* Stack elements for mobile */
+            align-items: center; /* Center content */
+            padding: 1rem; /* Reduced padding for mobile */
         }
 
         .blog-posts, .videos, .article-section {
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px; /* Adjusted max-width for better mobile view */
             background-color: #fff;
             padding: 1rem;
             margin-bottom: 2rem;
@@ -93,7 +94,7 @@
 
         .read-more, .cta-button {
             display: inline-block;
-            margin: 10px 5px 0 0;
+            margin: 10px 0; /* Adjusted for mobile */
             padding: 10px 20px;
             background-color: #005f99;
             color: #fff;
@@ -101,6 +102,7 @@
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
+            text-align: center; /* Center text */
         }
 
         .read-more:hover, .cta-button:hover {
@@ -155,12 +157,27 @@
         }
 
         @media only screen and (max-width: 768px) {
-            .blog-posts, .videos, .article-section {
-                width: 100%;
+            nav ul {
+                flex-direction: column; /* Stack the navigation items */
+                align-items: center; /* Center align for mobile */
             }
 
-            nav ul {
-                flex-direction: column;
+            header h1 {
+                font-size: 2rem; /* Smaller header font size */
+            }
+
+            h2, h1, h3 {
+                font-size: 1.5rem; /* Reduced font sizes */
+            }
+
+            .read-more, .cta-button {
+                width: 100%; /* Full width buttons */
+                padding: 15px; /* Increased padding */
+                font-size: 1.2rem; /* Larger font size for readability */
+            }
+
+            main {
+                padding: 1rem; /* Reduced padding for mobile */
             }
         }
     </style>
@@ -225,43 +242,65 @@
             <article class="post">
                 <img src="https://imagizer.imageshack.com/img923/6397/KgqcPT.png" alt="Parenting Resolutions">
                 <h3>Parenting Resolutions for a Stress-Free Year</h3>
-                <p>5 practical resolutions for stress-free parenting. Action tips and examples...</p>
-                <a class="read-more" onclick="toggleText(this)">Read More</a>
-                <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Sponsored</a>
+                <p>Discover practical resolutions for a stress-free parenting journey.</p>
+                <a class="read-more" href="#">Read More</a>
+            </article>
+
+            <article class="post">
+                <img src="https://imagizer.imageshack.com/img923/1994/57UBP7.png" alt="Healthy Family Meals">
+                <h3>Quick and Healthy Family Meals</h3>
+                <p>Learn how to prepare quick and nutritious meals that your family will love!</p>
+                <a class="read-more" href="#">Read More</a>
             </article>
         </section>
+
+        <section class="videos">
+            <h2>Latest Videos</h2>
+            <article class="video">
+                <img src="https://imagizer.imageshack.com/img923/8325/zYNf93.png" alt="Family Bonding Activities">
+                <h3>Family Bonding Activities for the Summer</h3>
+                <p>Watch this video for fun activities to do with your family this summer.</p>
+                <a class="read-more" href="#">Watch Now</a>
+            </article>
+        </section>
+
+        <div class="ad-overlay" id="adOverlay">
+            <h2>Thank You for Supporting Us!</h2>
+            <p>Your click helps us create more great content. Enjoy your visit!</p>
+            <button onclick="closeOverlay()">Close</button>
+        </div>
+
     </main>
 
     <footer>
-        <p>&copy; 2024 Raising Love. All rights reserved.</p>
+        <p>&copy; 2024 Raising Love: Parenting & Relationships. All rights reserved.</p>
     </footer>
-
-    <div class="ad-overlay" id="ad-overlay">
-        <h2>Congratulations!</h2>
-        <p>You have successfully accessed our sponsored content. Thank you for your support!</p>
-    </div>
 
     <script>
         function toggleText() {
-            var shortContent = document.getElementById("short-content");
-            var longContent = document.getElementById("long-content");
-            var readMoreButton = document.querySelector(".read-more");
+            const shortContent = document.getElementById("short-content");
+            const longContent = document.getElementById("long-content");
+            const readMore = document.querySelector(".read-more");
 
             if (longContent.style.display === "none") {
                 longContent.style.display = "block";
-                readMoreButton.textContent = "Read Less";
+                shortContent.style.display = "none";
+                readMore.textContent = "Read Less"; // Change text to Read Less
             } else {
                 longContent.style.display = "none";
-                readMoreButton.textContent = "Read More";
+                shortContent.style.display = "block";
+                readMore.textContent = "Read More"; // Change text to Read More
             }
         }
 
-        function showAd(adLink) {
-            window.location.href = adLink;
-            document.getElementById('ad-overlay').style.display = 'flex';
-            setTimeout(function() {
-                document.getElementById('ad-overlay').style.display = 'none';
-            }, 5000);
+        function openAd() {
+            const adOverlay = document.getElementById("adOverlay");
+            adOverlay.style.display = "flex"; // Use flex to center content
+        }
+
+        function closeOverlay() {
+            const adOverlay = document.getElementById("adOverlay");
+            adOverlay.style.display = "none";
         }
     </script>
 </body>
