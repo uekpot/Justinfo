@@ -114,6 +114,30 @@
             background-color: #005f99;
             color: #fff;
         }
+
+        /* Fullscreen ad overlay */
+        .ad-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ad-overlay h2 {
+            margin-bottom: 20px;
+        }
+
+        .ad-overlay p {
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -141,7 +165,7 @@
                     <p>These strategies will help you stay focused and stress-free all year round!</p>
                 </div>
                 <a class="read-more" onclick="toggleText(this)">Read More</a>
-                <a href="your-ad-link.com" class="cta-button">Special Offer</a>
+                <a href="#" class="cta-button" onclick="showAd('your-ad-link.com')">Special Offer</a>
             </article>
 
             <article class="post">
@@ -152,7 +176,7 @@
                     <p>Setting family goals can help bring everyone together. We'll show you how to set short-term and long-term goals, with examples and templates for easy tracking!</p>
                 </div>
                 <a class="read-more" onclick="toggleText(this)">Read More</a>
-                <a href="your-ad-link.com" class="cta-button">Exclusive Offer</a>
+                <a href="#" class="cta-button" onclick="showAd('your-ad-link.com')">Exclusive Offer</a>
             </article>
         </section>
 
@@ -161,13 +185,13 @@
             <article class="video">
                 <iframe src="https://www.youtube.com/embed/samplevideo" frameborder="0" allowfullscreen></iframe>
                 <h3>Video Title 1</h3>
-                <a href="your-ad-link.com" class="cta-button">Shop Now</a>
+                <a href="#" class="cta-button" onclick="showAd('your-ad-link.com')">Shop Now</a>
             </article>
 
             <article class="video">
                 <iframe src="https://www.youtube.com/embed/samplevideo2" frameborder="0" allowfullscreen></iframe>
                 <h3>Video Title 2</h3>
-                <a href="your-ad-link.com" class="cta-button">Get Offer</a>
+                <a href="#" class="cta-button" onclick="showAd('your-ad-link.com')">Get Offer</a>
             </article>
         </section>
     </main>
@@ -175,6 +199,12 @@
     <footer>
         <p>&copy; 2024 Raising Love. All rights reserved.</p>
     </footer>
+
+    <!-- Ad overlay -->
+    <div class="ad-overlay" id="adOverlay">
+        <h2>Your Ad is Showing!</h2>
+        <p>Redirecting to your offer in <span id="countdown">5</span> seconds...</p>
+    </div>
 
     <script>
         function toggleText(button) {
@@ -186,6 +216,28 @@
                 moreText.style.display = "none";
                 button.textContent = "Read More";
             }
+        }
+
+        function showAd(url) {
+            // Show the ad overlay
+            const overlay = document.getElementById('adOverlay');
+            overlay.style.display = 'flex';
+
+            // Countdown timer
+            let countdown = 5;
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = countdown;
+
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    // Redirect to the intended link after countdown
+                    window.location.href = url;
+                }
+            }, 1000);
         }
     </script>
 </body>
