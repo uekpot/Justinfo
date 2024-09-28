@@ -235,4 +235,15 @@
             countdownElement.textContent = countdown;
 
             const interval = setInterval(() => {
-                countdown
+                countdown--;
+                countdownElement.textContent = countdown;
+
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.href = url; // Redirect after countdown
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
