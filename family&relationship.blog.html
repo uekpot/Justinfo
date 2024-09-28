@@ -4,7 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raising Love: Parenting & Relationships</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #005f99;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem;
+        }
+
+        .blog-posts, .videos {
+            width: 45%;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #005f99;
+        }
+
+        .post, .video {
+            margin-bottom: 1.5rem;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .post h3, .video h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .post p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .post .more-text {
+            display: none;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .read-more, .cta-button {
+            display: inline-block;
+            margin: 10px 5px 0 0;
+            padding: 10px 20px;
+            background-color: #005f99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .read-more:hover, .cta-button:hover {
+            background-color: #003f66;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #005f99;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,7 +136,11 @@
                 <img src="path/to/image1.jpg" alt="Parenting Resolutions">
                 <h3>Parenting Resolutions for a Stress-Free Year</h3>
                 <p>5 practical resolutions for stress-free parenting. Action tips and examples...</p>
-                <a href="#" class="read-more">Read More</a>
+                <div class="more-text">
+                    <p>Here's more detailed advice about how to set parenting goals, how to keep them, and specific examples you can follow for better family management.</p>
+                    <p>These strategies will help you stay focused and stress-free all year round!</p>
+                </div>
+                <a class="read-more" onclick="toggleText(this)">Read More</a>
                 <a href="your-ad-link.com" class="cta-button">Special Offer</a>
             </article>
 
@@ -34,7 +148,10 @@
                 <img src="path/to/image2.jpg" alt="Goal Setting">
                 <h3>How to Set Realistic Goals for Your Family</h3>
                 <p>5 steps to setting achievable family goals. Action tips and examples...</p>
-                <a href="#" class="read-more">Read More</a>
+                <div class="more-text">
+                    <p>Setting family goals can help bring everyone together. We'll show you how to set short-term and long-term goals, with examples and templates for easy tracking!</p>
+                </div>
+                <a class="read-more" onclick="toggleText(this)">Read More</a>
                 <a href="your-ad-link.com" class="cta-button">Exclusive Offer</a>
             </article>
         </section>
@@ -58,5 +175,19 @@
     <footer>
         <p>&copy; 2024 Raising Love. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleText(button) {
+            const moreText = button.previousElementSibling;
+            if (moreText.style.display === "none" || moreText.style.display === "") {
+                moreText.style.display = "block";
+                button.textContent = "Read Less";
+            } else {
+                moreText.style.display = "none";
+                button.textContent = "Read More";
+            }
+        }
+    </script>
 </body>
 </html>
+
