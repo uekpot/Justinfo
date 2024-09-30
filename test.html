@@ -1,14 +1,66 @@
-<div class="popup-content">
-    <h2>Welcome to Raising Love</h2>
-    <p>Thank you for visiting! We have something special for you.</p>
-    <button onclick="openAd()">Check out our special offer!</button>
+<div class="ad-overlay" id="ad-overlay" style="display: flex;">
+    <div class="popup-content">
+        <h2>Welcome to Raising Love</h2>
+        <p>Thank you for visiting! We have something special for you.</p>
+        <button class="cta-button" onclick="openAd()">Check out our special offer!</button>
+    </div>
 </div>
+
+<style>
+    .ad-overlay {
+        display: none; /* Initially hidden, will be shown when needed */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .popup-content {
+        background-color: #005f99; /* Matching the header color */
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-content h2 {
+        margin-bottom: 20px;
+        color: #ffffff; /* White text for visibility */
+    }
+
+    .popup-content p {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: #ffffff; /* White text for visibility */
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        background-color: #ffffff; /* White button */
+        color: #005f99; /* Matching text color */
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .cta-button:hover {
+        background-color: #003f66; /* Darker shade on hover */
+        color: #ffffff; /* Change text color on hover */
+    }
+</style>
 
 <script>
     function openAd() {
         // Open the ad in a new tab
         window.open('https://noohapou.com/4/8115973', '_blank'); // Replace with your ad link
         // Redirect back to the blog
-        window.location.href = 'family&relationship.blog'; // Replace with your destination page link
+        window.location.href = 'family&relationship.blog'; // Replace with your blog link
     }
 </script>
