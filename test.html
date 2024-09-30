@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raising Love: Parenting & Relationships</title>
+    <style>
+         /* Style for the welcome popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .popup-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #005f99;
+        }
+
+        .popup-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        header {
+            background-color: #005f99;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky; /* Keeps header visible */
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffffff; /* Header text color set to white */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .blog-posts, .videos, .article-section {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h1, h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #005f99;
+        }
+
+        .post, .video {
+            margin-bottom: 1.5rem;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .post h3, .video h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .post p {
+            margin: 10px 0;
+            color: #555;
+            text-align: justify;
+        }
+
+        .read-more, .cta-button {
+            display: inline-block;
+            margin: 10px 5px 0 0;
+            padding: 10px 20px;
+            background-color: #005f99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .read-more:hover, .cta-button:hover {
+            background-color: #003f66;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #005f99;
+            color: #fff;
+        }
+
+        .article-section ul, .article-section ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .article-section ul li, .article-section ol li {
+            margin-bottom: 10px;
+        }
+
+        .article-section h1, .article-section h2 {
+            color: #005f99;
+        }
+
+        .article-section p {
+            text-align: justify;
+        }
+
+        .ad-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ad-overlay h2 {
+            margin-bottom: 20px;
+        }
+
+        .ad-overlay p {
+            font-size: 1.2rem;
+        }
+
+        .archive {
+            margin-top: 20px;
+        }
+
+        .archive h2 {
+            margin-bottom: 10px;
+            color: #005f99;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .comment-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media only screen and (max-width: 768px) {
+            .blog-posts, .videos, .article-section {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 1.8rem; /* Smaller header on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Raising Love: Parenting & Relationships</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Parenting Tips</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Self-Care</a></li>
+                <li><a href="#">Archive</a></li> <!-- Link to archive -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="article-section">
+            <img src="https://imagizer.imageshack.com/img924/9002/Y4mgZy.jpg" alt="Setting Relationship Boundaries">
+            <h1>Understanding Relationship Boundaries</h1>
+
+            <div id="short-content">
+                <p>In any relationship, boundaries are essential for maintaining a healthy dynamic. But what exactly are relationship boundaries, and why are they so important? In this post, we'll explore the definition of boundaries, the different types that exist, and how they contribute to respectful relationships.</p>
+            </div>
+            <div id="long-content" style="display: none;">
+                <p>Relationship boundaries are the limits we set to protect our emotional and physical well-being. They define what we are comfortable with, fostering mutual respect. By establishing clear boundaries, we express our needs and expectations, while allowing others to do the same.</p>
+
+                <h2>What Are Relationship Boundaries?</h2>
+                <p>Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships. They promote self-respect, mutual respect, and independence, helping individuals maintain their identity within the relationship.</p>
+
+                <h2>The Importance of Boundaries</h2>
+                <ol>
+                    <li><strong>Promote Healthy Communication:</strong> Boundaries encourage open dialogue about feelings and needs, which is crucial for healthy relationships.</li>
+                    <li><strong>Enhance Self-Respect:</strong> Knowing your limits reinforces self-esteem and self-worth.</li>
+                    <li><strong>Encourage Mutual Respect:</strong> Clear boundaries help both parties understand and respect each other's needs.</li>
+                    <li><strong>Foster Independence:</strong> Boundaries allow individuals to maintain their identity and independence within a relationship.</li>
+                </ol>
+
+                <h2>Types of Relationship Boundaries</h2>
+                <h3>1. Emotional Boundaries</h3>
+                <p>These involve how much you are willing to share about your feelings and experiences.</p>
+
+                <h3>2. Physical Boundaries</h3>
+                <p>These refer to personal space and physical touch.</p>
+
+                <h3>3. Time Boundaries</h3>
+                <p>Time boundaries help manage how much time you spend with others and prioritize personal time and commitments.</p>
+
+                <h3>4. Digital Boundaries</h3>
+                <p>In today's tech world, digital boundaries relate to sharing personal information online and managing screen time.</p>
+
+                <h2>Conclusion</h2>
+                <p>Understanding and establishing boundaries nurtures healthy connections, promoting communication, respect, and individuality while protecting emotional well-being.</p>
+            </div>
+
+            <a class="read-more" onclick="toggleText()">Read More</a>
+            <a href="https://www.justinfo.store/family&relationship.blog" class="cta-button" onclick="showAd('https://noohapou.com/4/8115973')">Visit Our Sponsor</a> <!-- New ad button -->
+        </section>
+
+        <section class="blog-posts">
+            <h2>Featured Blog Posts</h2>
+            <article class="post">
+                <img src="https://imagizer.imageshack.com/img923/6397/KgqcPT.png" alt="Parenting Resolutions">
+                <h3>Parenting Resolutions for a Stress-Free Year</h3>
+                <p>5 practical resolutions for stress-free parenting. Action tips and examples. Bonus: Parenting Resolutions Checklist.</p>
+                <a class="read-more" onclick="toggleText()">Read More</a> <!-- Fixed button to show more content -->
+                <a href="https://noohapou.com/4/8115973" class="cta-button">Visit Our Sponsor</a> <!-- New ad button -->
+            </article>
+            <article class="post">
+                <img src="https://imagizer.imageshack.com/img924/1999/IMaVVD.png" alt="Family Goal Setting">
+                <h3>How to Set Realistic Goals for Your Family’s Growth</h3>
+                <p>5 steps to setting achievable family goals. Action tips and examples. Bonus: Family Goal-Setting Worksheet.</p>
+                <a class="read-more" onclick="toggleText()">Read More</a> <!-- Fixed button to show more content -->
+                <a href="https://noohapou.com/4/8115973" class="cta-button">Visit Our Sponsor</a> <!-- New ad button -->
+            </article>
+        </section>
+<h2>Join Our Community: Family Love Guide! ❤️👨‍👩‍👧‍👦</h2>
+
+<p>Welcome to <strong>Family Love Guide</strong>, a space where we celebrate all types of relationships—whether you're married, dating, or just exploring the wonderful world of love! 💖</p>
+
+<p>In this group, you'll find:</p>
+<ul>
+    <li><strong>Helpful Tips</strong>: Discover strategies for nurturing healthy relationships and effective parenting.</li>
+    <li><strong>Supportive Discussions</strong>: Share your experiences, ask questions, and connect with others on a similar journey.</li>
+    <li><strong>Engaging Activities</strong>: Participate in fun challenges, polls, and live discussions!</li>
+</ul>
+
+<p>Let's create a positive and supportive environment where everyone can thrive. No matter your relationship status, we invite you to join our growing community!</p>
+
+<p>👉 <a href="https://bit.ly/3zt8zhM">Click here</a> to join us and start sharing your journey today!</p>
+
+<p>Feel free to invite your friends and family! Together, we can build a loving and supportive network.</p>
+
+        <section class="videos">
+            <h2>Latest Videos</h2>
+            <article class="video">
+                <h3>Over protectiveness</h3>
+                <p>This video is all about a husband who seems to be over protective towards the wife. <a href="https://youtu.be/tm-khBwQ4bM" target="_blank">Watch here</a></p>
+            </article>
+            <article class="video">
+                <h3>Jealous Husband</h3>
+                <p>This video is all about a husband who seems to be over protective towards the wife. <a href="https://youtu.be/tm-khBwQ4bM" target="_blank">Watch here</a></p>
+            </article>
+        </section>
+
+        <!-- Comment Section -->
+        <section class="comment-section">
+            <h3>Comments</h3>
+            <div id="comments-list">
+                <!-- Placeholder for comments -->
+            </div>
+            <form id="comment-form">
+                <textarea id="comment" placeholder="Add a comment..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Ad Overlay -->
+        <div id="ad-overlay" class="ad-overlay">
+            <div>
+                <h2>Congratulations!</h2>
+                <p>You are being redirected to our sponsor.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Raising Love: Parenting & Relationships. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleText() {
+            const shortContent = document.getElementById("short-content");
+            const longContent = document.getElementById("long-content");
+            const readMoreBtn = document.querySelector(".read-more");
+            if (shortContent.style.display === "none") {
+                shortContent.style.display = "block";
+                longContent.style.display = "none";
+                readMoreBtn.textContent = "Read More";
+            } else {
+                shortContent.style.display = "none";
+                longContent.style.display = "block";
+                readMoreBtn.textContent = "Read Less";
+            }
+        }
+
+        function showAd(adUrl) {
+            document.getElementById("ad-overlay").style.display = "flex";
+            setTimeout(() => {
+                window.location.href = "https://noohapou.com/4/8115973";
+            }, 2000);
+        }
+
+        // Comment Form Submission
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const commentText = document.getElementById('comment').value;
+            const commentsList = document.getElementById('comments-list');
+
+            const commentDiv = document.createElement('div');
+            commentDiv.classList.add('comment');
+            commentDiv.textContent = commentText;
+
+            commentsList.appendChild(commentDiv);
+            document.getElementById('comment').value = ''; // Clear the textarea
+        });
+        <!-- Welcome Popup -->
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Welcome to Raising Love</h2>
+            <p>Thank you for visiting! We have something special for you.</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the popup and handle redirects
+        window.onload = function() {
+            // Display the popup for 3 seconds, then redirect to the ad link
+            setTimeout(function() {
+                // Hide the popup
+                document.getElementById('popup').style.display = 'none';
+                
+                // Open the ad in a new tab
+                window.open('https://your-ad-link.com', '_blank'); // Replace with your ad link
+                
+                // Redirect back to the destination page (e.g., your blog)
+                setTimeout(function() {
+                    window.location.href = 'https://your-blog-link.com'; // Replace with your destination page link
+                }, 1000); // 1000ms = 1 second delay after the ad is opened
+            }, 3000); // 3000ms = 3 seconds to display the popup
+        };
+    </script>
+    </script>
+
+    <!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1699987,"","FFFFFF");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
+</body>
+</html>
