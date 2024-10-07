@@ -79,6 +79,21 @@
             background-color: #218838;
         }
 
+        .ads-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .ads-button:hover {
+            background-color: #0056b3;
+        }
+
         .success-message {
             display: none;
             margin-top: 20px;
@@ -120,6 +135,9 @@
             <button type="submit">Soumettre</button>
         </form>
 
+        <!-- Button linking to the ads -->
+        <a href="https://bit.ly/3ZwSKBg" target="_blank" class="ads-button">Cliquez ici pour recevoir votre récompense</a>
+
         <div class="success-message" id="success-message">
             <p>Merci ! Nous vous contacterons avec les détails de l'offre.</p>
         </div>
@@ -129,7 +147,7 @@
         function submitForm(event) {
             event.preventDefault(); // Prevent form submission
 
-            // Hide form container and show success message
+            // Hide form and show success message
             document.getElementById('offer-form').style.display = 'none';
             document.getElementById('success-message').style.display = 'block';
         }
