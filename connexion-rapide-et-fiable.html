@@ -48,21 +48,6 @@
             border: 2px dashed #ddd;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #28a745;
-            color: white;
-            text-transform: uppercase;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .cta-button:hover {
-            background-color: #218838;
-        }
-
         form {
             margin: 20px auto;
             text-align: left;
@@ -94,37 +79,32 @@
             background-color: #218838;
         }
 
-        .friend-input {
-            margin: 10px 0;
-        }
-
         .share-button {
-            padding: 10px 20px;
+            display: none; /* Initially hidden */
+            padding: 15px 30px;
             background-color: #28a745;
             color: white;
-            border: none;
+            text-transform: uppercase;
+            font-weight: bold;
             border-radius: 5px;
+            text-decoration: none;
+            border: none;
             cursor: pointer;
-            margin-top: 10px;
         }
 
         .share-button:hover {
             background-color: #218838;
         }
-
-        .success-message {
-            display: none;
-            margin-top: 20px;
-            color: green;
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="container" id="form-container">
+    <div class="container">
         <h1>Profitez de l'Internet Gratuit au Togo</h1>
+        
+        <!-- Image Section -->
         <div class="offer-content">
+            <img src="https://imagizer.imageshack.com/img924/3923/hUwXAX.jpg" alt="img" style="width: 100%; max-width: 500px; border-radius: 10px; margin-bottom: 20px;">
             <h2>Accédez à l'Internet Gratuit dès maintenant !</h2>
             <p>Ne manquez pas cette offre exclusive pour bénéficier d'une connexion Internet gratuite, rapide et illimitée !</p>
             <p>Veuillez remplir le formulaire ci-dessous pour recevoir les détails de l'offre :</p>
@@ -153,108 +133,27 @@
             <button type="submit">Soumettre</button>
         </form>
 
-        <!-- Ad section with direct link -->
+        <!-- Share button section -->
         <div class="ad-section">
-            <a href="https://bit.ly/3ZwSKBg" target="_blank">
-                <img src="https://imagizer.imageshack.com/img924/3923/hUwXAX.jpg" alt="img" style="width: 100%; max-width: 500px;">
-            </a>
+            <button class="share-button" id="share-button" onclick="shareOffer()">Partager sur WhatsApp pour recevoir votre récompense</button>
         </div>
 
         <p>Restez connecté avec cette offre incroyable et profitez d'une connexion rapide et fiable partout au Togo !</p>
-    </div>
-
-    <div class="container" id="share-container" style="display:none;">
-        <h1>Partagez cette offre incroyable !</h1>
-        <p>Partagez ce lien avec vos amis pour recevoir votre récompense.</p>
-
-        <!-- Input fields for up to 10 friends -->
-        <div id="friends-list">
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-            <div class="friend-input">
-                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
-                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
-            </div>
-        </div>
-
-        <div class="success-message" id="success-message">
-            Tous vos amis ont été partagés avec succès ! Votre récompense sera bientôt disponible.
-        </div>
     </div>
 
     <script>
         function submitForm(event) {
             event.preventDefault(); // Prevent form submission
 
-            // Hide form container and show share container
-            document.getElementById('form-container').style.display = 'none';
-            document.getElementById('share-container').style.display = 'block';
+            // Show the share button after form submission
+            document.getElementById('share-button').style.display = 'inline-block';
         }
 
-        function shareToWhatsApp(button) {
-            const inputField = button.previousElementSibling;
-            const phoneNumber = inputField.value;
+        function shareOffer() {
+            const message = "Regardez cette offre incroyable ! Cliquez ici pour en savoir plus: https://bit.ly/3ZwSKBg";
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
 
-            // Check if the phone number is not empty
-            if (phoneNumber) {
-                const message = "Regardez cette offre incroyable ! Cliquez ici pour en savoir plus: https://bit.ly/3ZwSKBg";
-                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-                window.open(whatsappUrl, '_blank');
-
-                // Optionally clear the input field
-                inputField.value = '';
-
-                // Show success message if all fields have been shared
-                const inputs = document.querySelectorAll('.friend-input input');
-                let allShared = true;
-
-                inputs.forEach(input => {
-                    if (input.value !== '') {
-                        allShared = false;
-                    }
-                });
-
-                if (allShared) {
-                    document.getElementById('success-message').style.display = 'block';
-                }
-            } else {
-                alert("Veuillez entrer un numéro de téléphone.");
-            }
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 
