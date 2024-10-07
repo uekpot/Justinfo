@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partagez et Recevez votre Récompense</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        .friend-input {
+            margin: 10px 0;
+        }
+
+        .share-button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .share-button:hover {
+            background-color: #218838;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Partagez cette offre incroyable !</h1>
+        <p>Partagez ce lien avec vos amis pour recevoir votre récompense.</p>
+
+        <!-- Input fields for up to 10 friends -->
+        <div id="friends-list">
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="success-message" id="success-message">
+            Tous vos amis ont été partagés avec succès ! Votre récompense sera bientôt disponible.
+        </div>
+    </div>
+
+    <script>
+        function shareToWhatsApp(button) {
+            const inputField = button.previousElementSibling;
+            const phoneNumber = inputField.value;
+
+            // Check if the phone number is not empty
+            if (phoneNumber) {
+                const message = "Regardez cette offre incroyable ! Cliquez ici pour en savoir plus: [Your Link Here]";
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                
+                window.open(whatsappUrl, '_blank');
+                
+                // Optionally clear the input field
+                inputField.value = '';
+
+                // Show success message if all fields have been shared
+                const inputs = document.querySelectorAll('.friend-input input');
+                let allShared = true;
+
+                inputs.forEach(input => {
+                    if (input.value !== '') {
+                        allShared = false;
+                    }
+                });
+
+                if (allShared) {
+                    document.getElementById('success-message').style.display = 'block';
+                }
+            } else {
+                alert("Veuillez entrer un numéro de téléphone.");
+            }
+        }
+    </script>
+
+</body>
+</html>
