@@ -48,21 +48,6 @@
             border: 2px dashed #ddd;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #28a745;
-            color: white;
-            text-transform: uppercase;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .cta-button:hover {
-            background-color: #218838;
-        }
-
         form {
             margin: 20px auto;
             text-align: left;
@@ -91,21 +76,6 @@
         }
 
         form button:hover {
-            background-color: #218838;
-        }
-
-        .share-button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-        }
-
-        .share-button:hover {
             background-color: #218838;
         }
 
@@ -151,8 +121,7 @@
         </form>
 
         <div class="success-message" id="success-message">
-            <p>Merci ! Veuillez partager cette offre avec vos amis.</p>
-            <button class="share-button" id="share-button" onclick="shareToWhatsApp()">Partager sur WhatsApp</button>
+            <p>Merci ! Nous vous contacterons avec les détails de l'offre.</p>
         </div>
     </div>
 
@@ -163,19 +132,7 @@
             // Hide form container and show success message
             document.getElementById('offer-form').style.display = 'none';
             document.getElementById('success-message').style.display = 'block';
-            document.getElementById('share-button').style.display = 'inline-block'; // Show share button
         }
-
-        function shareToWhatsApp() {
-            const phoneNumber = document.getElementById('phone').value; // Get phone number from the form
-            const message = "Regardez cette offre incroyable ! Cliquez ici pour en savoir plus: https://bit.ly/3ZwSKBg";
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-        <!-- BEGIN: Powered by Supercounters.com -->
-<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1700538,"","FFFFFF");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
-</center>
-<!-- END: Powered by Supercounters.com -->
     </script>
 
 </body>
