@@ -48,6 +48,21 @@
             border: 2px dashed #ddd;
         }
 
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
         form {
             margin: 20px auto;
             text-align: left;
@@ -80,20 +95,24 @@
         }
 
         .share-button {
-            display: none; /* Initially hidden */
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: #28a745;
             color: white;
-            text-transform: uppercase;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
         }
 
         .share-button:hover {
             background-color: #218838;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
         }
     </style>
 </head>
@@ -101,10 +120,8 @@
 
     <div class="container">
         <h1>Profitez de l'Internet Gratuit au Togo</h1>
-        
-        <!-- Image Section -->
         <div class="offer-content">
-            <img src="https://imagizer.imageshack.com/img924/3923/hUwXAX.jpg" alt="img" style="width: 100%; max-width: 500px; border-radius: 10px; margin-bottom: 20px;">
+            <img src="https://imagizer.imageshack.com/img924/3923/hUwXAX.jpg" alt="img" style="width: 100%; max-width: 500px;">
             <h2>Accédez à l'Internet Gratuit dès maintenant !</h2>
             <p>Ne manquez pas cette offre exclusive pour bénéficier d'une connexion Internet gratuite, rapide et illimitée !</p>
             <p>Veuillez remplir le formulaire ci-dessous pour recevoir les détails de l'offre :</p>
@@ -133,28 +150,32 @@
             <button type="submit">Soumettre</button>
         </form>
 
-        <!-- Share button section -->
-        <div class="ad-section">
-            <button class="share-button" id="share-button" onclick="shareOffer()">Partager sur WhatsApp pour recevoir votre récompense</button>
+        <div class="success-message" id="success-message">
+            <p>Merci ! Veuillez partager cette offre avec vos amis.</p>
+            <button class="share-button" id="share-button" onclick="shareToWhatsApp()">Partager sur WhatsApp</button>
         </div>
-
-        <p>Restez connecté avec cette offre incroyable et profitez d'une connexion rapide et fiable partout au Togo !</p>
     </div>
 
     <script>
         function submitForm(event) {
             event.preventDefault(); // Prevent form submission
 
-            // Show the share button after form submission
-            document.getElementById('share-button').style.display = 'inline-block';
+            // Hide form container and show success message
+            document.getElementById('offer-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('share-button').style.display = 'inline-block'; // Show share button
         }
 
-        function shareOffer() {
+        function shareToWhatsApp() {
+            const phoneNumber = document.getElementById('phone').value; // Get phone number from the form
             const message = "Regardez cette offre incroyable ! Cliquez ici pour en savoir plus: https://bit.ly/3ZwSKBg";
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
+        <!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1700538,"","FFFFFF");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
     </script>
 
 </body>
