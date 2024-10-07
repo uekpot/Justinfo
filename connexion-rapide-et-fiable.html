@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Offre Internet Gratuit au Togo</title>
     <style>
-        /* (Same CSS styles as before) */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -50,6 +48,21 @@
             border: 2px dashed #ddd;
         }
 
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
         form {
             margin: 20px auto;
             text-align: left;
@@ -81,11 +94,35 @@
             background-color: #218838;
         }
 
+        .friend-input {
+            margin: 10px 0;
+        }
+
+        .share-button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .share-button:hover {
+            background-color: #218838;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="form-container">
         <h1>Profitez de l'Internet Gratuit au Togo</h1>
         <div class="offer-content">
             <h2>Accédez à l'Internet Gratuit dès maintenant !</h2>
@@ -94,7 +131,7 @@
         </div>
 
         <!-- Form section -->
-        <form id="offer-form">
+        <form id="offer-form" onsubmit="return submitForm(event)">
             <label for="first-name">Prénom :</label>
             <input type="text" id="first-name" name="first_name" placeholder="Entrez votre prénom" required>
 
@@ -116,18 +153,109 @@
             <button type="submit">Soumettre</button>
         </form>
 
+        <!-- Ad section with direct link -->
+        <div class="ad-section">
+            <a href="https://bit.ly/3ZwSKBg" target="_blank">
+                <img src="https://imagizer.imageshack.com/img924/3923/hUwXAX.jpg" alt="img" style="width: 100%; max-width: 500px;">
+            </a>
+        </div>
+
         <p>Restez connecté avec cette offre incroyable et profitez d'une connexion rapide et fiable partout au Togo !</p>
     </div>
-    
-    <script>
-        // Add event listener to the form
-        document.getElementById('offer-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-            
-            // Redirect to the sharing page after form submission
-            window.location.href = 'https://www.justinfo.store/connexion2-rapide-et-fiable.html'; // Redirect to the sharing page
-        });
 
+    <div class="container" id="share-container" style="display:none;">
+        <h1>Partagez cette offre incroyable !</h1>
+        <p>Partagez ce lien avec vos amis pour recevoir votre récompense.</p>
+
+        <!-- Input fields for up to 10 friends -->
+        <div id="friends-list">
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+            <div class="friend-input">
+                <input type="text" placeholder="Entrez le numéro de téléphone de votre ami" required>
+                <button class="share-button" onclick="shareToWhatsApp(this)">Partager sur WhatsApp</button>
+            </div>
+        </div>
+
+        <div class="success-message" id="success-message">
+            Tous vos amis ont été partagés avec succès ! Votre récompense sera bientôt disponible.
+        </div>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Hide form container and show share container
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('share-container').style.display = 'block';
+        }
+
+        function shareToWhatsApp(button) {
+            const inputField = button.previousElementSibling;
+            const phoneNumber = inputField.value;
+
+            // Check if the phone number is not empty
+            if (phoneNumber) {
+                const message = "Regardez cette offre incroyable ! Cliquez ici pour en savoir plus: https://bit.ly/3ZwSKBg";
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                
+                window.open(whatsappUrl, '_blank');
+                
+                // Optionally clear the input field
+                inputField.value = '';
+
+                // Show success message if all fields have been shared
+                const inputs = document.querySelectorAll('.friend-input input');
+                let allShared = true;
+
+                inputs.forEach(input => {
+                    if (input.value !== '') {
+                        allShared = false;
+                    }
+                });
+
+                if (allShared) {
+                    document.getElementById('success-message').style.display = 'block';
+                }
+            } else {
+                alert("Veuillez entrer un numéro de téléphone.");
+            }
+        }
         <!-- BEGIN: Powered by Supercounters.com -->
 <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1700538,"","FFFFFF");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
 </center>
